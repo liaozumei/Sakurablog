@@ -10,3 +10,6 @@ it's a blog at the front desk
 ![zhuce](./public/images/zhuce.png)
 
 
+### 轮播图页面
+
+![swiper](./public/images/swiper.png)
