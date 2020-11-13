@@ -2,10 +2,10 @@ var express = require('express');
 const blog = require('../model/blog')
 const blogContent = require('../model/blogContent')
 var router = express.Router();
-var cors = require('cors')
+
 
 /* GET users listing. */
-router.get('/', cors(),function(req, res, next) {
+router.get('/',function(req, res, next) {
   
 });
 
@@ -30,7 +30,7 @@ router.get('/', cors(),function(req, res, next) {
 
 //两表连增
 //增博客内容
-router.post('/addBlogs',cors(),function(req,res){
+router.post('/addBlogs',function(req,res){
    
     var blogContentList = new blogContent(req.body)
     var blogList = new blog(req.body);
@@ -70,7 +70,7 @@ blogContentList.save({},function(error,data){
 })
 //两表连查
 // 查blog
-router.post('/findBlogs',cors(),function(req,res){
+router.post('/findBlogs',function(req,res){
     //  主表，查询关联表，populate里面填写关联的键
     //模糊查询
     var query = {};
@@ -93,7 +93,7 @@ router.post('/findBlogs',cors(),function(req,res){
 
 //删除，逻辑删除，将display的状态改为false
 //更新数据库
-router.post('/delBlogs',cors(),function(req,res){
+router.post('/delBlogs',function(req,res){
   
    console.log(req.body);
     // 然后把数据库更新
@@ -113,7 +113,7 @@ router.post('/delBlogs',cors(),function(req,res){
 })
 
 //修改
-router.post('/changeBlogs',cors(),function(req,res){
+router.post('/changeBlogs',function(req,res){
     var change = req.body
    console.log(change);
    blog.update({

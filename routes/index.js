@@ -1,7 +1,8 @@
 var express = require('express');
 const swiper = require('../model/swiper');
 var router = express.Router();
-const blog = require('../model/blog')
+const blog = require('../model/blog');
+const { render } = require('ejs');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   //轮播图假数据
@@ -145,6 +146,10 @@ swiper.find({show:true},function(error,data){
     });
    
   }
+})
+
+router.get('/admin',function(req,res,next){
+  res,render('admin')
 })
 
 // blog.find({},function(error,data){

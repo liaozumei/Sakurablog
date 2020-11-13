@@ -14,11 +14,11 @@ const tokenExpirestime = 1000 * 60 * 60 * 24;
 //密钥
 var secrit = 'xiaolv'
 /* GET users listing. */
-router.post('/', cors(),function(req, res, next) {
+router.post('/',function(req, res, next) {
  
 });
 
-router.post('/getUsers', cors(),function(req,res){
+router.post('/getUsers',function(req,res){
     users.find({},function(error,data){
       if(error) throw error
       else{
@@ -32,7 +32,7 @@ router.post('/getUsers', cors(),function(req,res){
   })
 
 
-router.post('/changeUsers',cors(),function(req,res){
+router.post('/changeUsers',function(req,res){
   console.log(req.body);
   users.update({
     username:req.body.username
@@ -52,7 +52,7 @@ router.post('/changeUsers',cors(),function(req,res){
   })
 })
 
-router.post('/login',cors(),function(req,res){
+router.post('/login',function(req,res){
     //  req到前台的参数
     //  用户名或者密码错误,查询数据库data.length = 0
     //  如果data.length > 1 返回错误:出现未知错误，请联系管理员  错误代码xxx d
@@ -100,7 +100,7 @@ router.post('/login',cors(),function(req,res){
   })
 })
 
-router.post('/info',cors(),function(req,res){
+router.post('/info',function(req,res){
     //  获取到携带的参数是token = admin-token
     //  然后返回一系列信息
     //  拿到带过来的token
